@@ -15,20 +15,8 @@ public class Produto{
 }
 class Estoque extends Produto {
     private List<Produto> produtos;
-    public Estoque() {
-        produto = new ArrayList<>();
-
-        public void adicionarProduto (Produto produtos){
-            produtos.add(produtos);
-        }
-
-        public void removerProduto (Produto produtos){
-            produtos.remove(produtos);
-        }
-
-        public List<Produto> listarProdutos () {
-            return produtos
-        }
+    public Estoque(String nome, String tamanho, String cor, double preco){
+        super(nome, tamanho, cor, preco);
     }
 }
 class Pedido {
@@ -48,13 +36,35 @@ class Pedido {
 class Cliente {
     private String nome;
     private String rua;
+    private String email;
     private int numero;
-    public Cliente(String nome, String rua, int numero){
+    private int numerotelefone;
+
+    private static List<Cliente> contas = new ArrayList<>();
+
+    public Cliente(String nome, String rua, String email, int numero, int numerotelefone){
         this.nome = nome;
         this.rua = rua;
+        this.email = email;
         this.numero = numero;
+        this.numerotelefone = numerotelefone;
     }
     public void CriarConta(){
+        contas.add(this);
+        System.out.println("Conta criada para o usuario: "+ nome);
+    }
+    public static List<Cliente> getContas(){
+        return contas;
+    }
+}
+class Pagamento {
+    private String pedido;
+    private String metodopagamento;
+    public Pagamento(String pedido, String metodopagamento){
+        this.pedido = pedido;
+        this.metodopagamento = metodopagamento;
+    }
+    public void pagar(){
 
     }
 }
