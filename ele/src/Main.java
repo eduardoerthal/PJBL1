@@ -18,6 +18,10 @@ class Estoque extends Produto {
     public Estoque(String nome, String tamanho, String cor, double preco){
         super(nome, tamanho, cor, preco);
     }
+    public void EstocarPedido(){
+        ArrayList<String> produtos = new ArrayList<String>();
+        produtos.
+    }
 }
 class Pedido {
     private Cliente cliente;
@@ -65,6 +69,11 @@ class Pagamento {
         this.metodopagamento = metodopagamento;
     }
     public void pagar(){
+
+    }
+}
+class Main{
+    public static void main(String [] args){
 
     }
 }
