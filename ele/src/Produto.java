@@ -30,7 +30,7 @@ class Pedido {
 
     public Pedido (Cliente cliente) {
         this.cliente = cliente ;
-        this.items = new ArrayList<>();
+        this.itens = new ArrayList<>();
     }
 
     public void AdicionarProduto (Produto produto){
@@ -61,16 +61,29 @@ class Cliente {
         return contas;
     }
 }
-class Pagamento {
+class Pagamento extends Exception {
     private String pedido;
     private String metodopagamento;
-    public Pagamento(String pedido, String metodopagamento){
+    private double dinheiropagamento;
+    private double valorpedido;
+    public Pagamento(String pedido, String metodopagamento, double dinheiropagamento, double valorpedido){
         this.pedido = pedido;
         this.metodopagamento = metodopagamento;
+        this.dinheiropagamento = dinheiropagamento;
+        this.valorpedido = valorpedido;
     }
     public void pagar(){
+        System.out.println("Iiciando o processo de pagamento! ");
+        System.out.println("Pedido do cliente: " + pedido);
+        System.out.println("Método como gostaria de pagar: " + metodopagamento);
 
+        if (validacaopagamento()){
+            System.out.println("Seu pagamento foi concluido com sucesso! ");
+        }else{
+            System.out.println("Erro ao tentar validar o pagamento. Tente novamente!");
+        }
     }
+    private boolean validacaopagamento(){}
 }
 class Main{
     public static void main(String [] args){
