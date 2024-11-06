@@ -13,16 +13,50 @@ public class Produto{
         this.preco = preco;
     }
 }
-class Estoque extends Produto {
-    private List<Produto> produtos;
-    public Estoque(String nome, String tamanho, String cor, double preco){
-        super(nome, tamanho, cor, preco);
-    }
-    public void EstocarProdutos(){
-        ArrayList<String> produtos = new ArrayList<String>();
-        produtos.add(Produto);
+class Camisa{
+    private String tamanho;
+    private String cor;
+    private String modelagem;
+    private String tecido;
+    private double preco;
+
+    public Camisa(String tamanho, String cor, String modelagem, String tecido, double preco){
+        this.tamanho = tamanho;
+        this.cor = cor;
+        this.modelagem = modelagem;
+        this.tecido = tecido;
+        this.preco = preco;
     }
 }
+class Calça{
+    private String tamanho;
+    private String cor;
+    private String modelagem;
+    private String tecido;
+    private double preco;
+
+    public Calça(String tamanho, String cor, String modelagem, String tecido, double preco){
+        this.tamanho = tamanho;
+        this.cor = cor;
+        this.modelagem = modelagem;
+        this.tecido = tecido;
+        this.preco = preco;
+    }
+}
+class Tenis{
+    private String tamanho;
+    private String cor;
+    private String material;
+    private double preco;
+
+    public Tenis(String tamanho, String cor, String material, double preco){
+        this.tamanho = tamanho;
+        this.cor = cor;
+        this.material = material;
+        this.preco = preco;
+    }
+}
+
 class Pedido {
     private Cliente cliente;
     private List<Produto> itens;
