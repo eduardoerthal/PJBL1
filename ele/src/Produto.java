@@ -18,9 +18,9 @@ class Estoque extends Produto {
     public Estoque(String nome, String tamanho, String cor, double preco){
         super(nome, tamanho, cor, preco);
     }
-    public void EstocarPedido(){
+    public void EstocarProdutos(){
         ArrayList<String> produtos = new ArrayList<String>();
-        produtos.
+        produtos.add(Produto);
     }
 }
 class Pedido {
@@ -87,6 +87,6 @@ class Pagamento extends Exception {
 }
 class Main{
     public static void main(String [] args){
-
+    new Screen();
     }
 }
