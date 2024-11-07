@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public abstract class Produto {
     protected String nome;
@@ -7,7 +8,7 @@ public abstract class Produto {
     protected String cor;
     protected double preco;
 
-    public Produto(String nome, String tamanho, String cor, double preco) {
+    private Produto(String nome, String tamanho, String cor, double preco) {
         this.nome = nome;
         this.tamanho = tamanho;
         this.cor = cor;
@@ -98,7 +99,7 @@ class Cliente {
     protected int numero;
     protected int numerotelefone;
 
-    protected static List<Cliente> contas = new ArrayList<>();
+    public static List<Cliente> contas = new ArrayList<>();
 
     public Cliente(String nome, String rua, String email, int numero, int numerotelefone){
         this.nome = nome;
@@ -115,7 +116,7 @@ class Cliente {
         return contas;
     }
 }
-class Pagamento extends Exception {
+class Pagamento{
     protected String pedido;
     protected String metodopagamento;
     protected double dinheiropagamento;
@@ -130,17 +131,29 @@ class Pagamento extends Exception {
         System.out.println("Iiciando o processo de pagamento! ");
         System.out.println("Pedido do cliente: " + pedido);
         System.out.println("Método como gostaria de pagar: " + metodopagamento);
-
-        if (validacaopagamento()){
-            System.out.println("Seu pagamento foi concluido com sucesso! ");
-        }else{
-            System.out.println("Erro ao tentar validar o pagamento. Tente novamente!");
+    }
+}
+class PagamentoNaoAutorizado extends Exception{
+    private String motivofalha;
+    private double valortentado;
+    private double valorproduto;
+    private String metododepagamento;
+    public PagamentoNaoAutorizado(String motivofalha, String metododepagamento, double valortentado, double valorproduto){
+        super();
+        this.motivofalha = motivofalha;
+        this.metododepagamento = metododepagamento;
+        this.valortentado = valortentado;
+        this.valorproduto = valorproduto;
+    }
+    public void naoaprovou(){
+        if(valortentado > valorproduto){
+            throw new PagamentoNaoAutorizado();
         }
     }
-    protected boolean validacaopagamento(){}
 }
 class Main{
     public static void main(String [] args){
     new Screen();
+    Scanner teclado = new Scanner(System.in);
     }
 }
