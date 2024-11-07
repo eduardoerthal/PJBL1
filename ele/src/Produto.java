@@ -1,24 +1,44 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Produto{
-    private String nome;
-    private String tamanho;
-    private String cor;
-    private double preco;
-    public Produto(String nome, String tamanho, String cor, double preco){
+public abstract class Produto {
+    protected String nome;
+    protected String tamanho;
+    protected String cor;
+    protected double preco;
+
+    public Produto(String nome, String tamanho, String cor, double preco) {
         this.nome = nome;
         this.tamanho = tamanho;
-        this.cor= cor;
+        this.cor = cor;
         this.preco = preco;
     }
+
+    public abstract void exibirDetalhes();
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getTamanho() {
+        return tamanho;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
 }
+
 class Camisa{
-    private String tamanho;
-    private String cor;
-    private String modelagem;
-    private String tecido;
-    private double preco;
+    protected String tamanho;
+    protected String cor;
+    protected String modelagem;
+    protected String tecido;
+    protected double preco;
 
     public Camisa(String tamanho, String cor, String modelagem, String tecido, double preco){
         this.tamanho = tamanho;
@@ -29,11 +49,11 @@ class Camisa{
     }
 }
 class Calça{
-    private String tamanho;
-    private String cor;
-    private String modelagem;
-    private String tecido;
-    private double preco;
+    protected String tamanho;
+    protected String cor;
+    protected String modelagem;
+    protected String tecido;
+    protected double preco;
 
     public Calça(String tamanho, String cor, String modelagem, String tecido, double preco){
         this.tamanho = tamanho;
@@ -44,10 +64,10 @@ class Calça{
     }
 }
 class Tenis{
-    private String tamanho;
-    private String cor;
-    private String material;
-    private double preco;
+    protected String tamanho;
+    protected String cor;
+    protected String material;
+    protected double preco;
 
     public Tenis(String tamanho, String cor, String material, double preco){
         this.tamanho = tamanho;
@@ -58,9 +78,9 @@ class Tenis{
 }
 
 class Pedido {
-    private Cliente cliente;
-    private List<Produto> itens;
-    private double valorTotal;
+    protected Cliente cliente;
+    protected List<Produto> itens;
+    protected double valorTotal;
 
     public Pedido (Cliente cliente) {
         this.cliente = cliente ;
@@ -72,13 +92,13 @@ class Pedido {
     }
 }
 class Cliente {
-    private String nome;
-    private String rua;
-    private String email;
-    private int numero;
-    private int numerotelefone;
+    protected String nome;
+    protected String rua;
+    protected String email;
+    protected int numero;
+    protected int numerotelefone;
 
-    private static List<Cliente> contas = new ArrayList<>();
+    protected static List<Cliente> contas = new ArrayList<>();
 
     public Cliente(String nome, String rua, String email, int numero, int numerotelefone){
         this.nome = nome;
@@ -96,10 +116,10 @@ class Cliente {
     }
 }
 class Pagamento extends Exception {
-    private String pedido;
-    private String metodopagamento;
-    private double dinheiropagamento;
-    private double valorpedido;
+    protected String pedido;
+    protected String metodopagamento;
+    protected double dinheiropagamento;
+    protected double valorpedido;
     public Pagamento(String pedido, String metodopagamento, double dinheiropagamento, double valorpedido){
         this.pedido = pedido;
         this.metodopagamento = metodopagamento;
@@ -117,7 +137,7 @@ class Pagamento extends Exception {
             System.out.println("Erro ao tentar validar o pagamento. Tente novamente!");
         }
     }
-    private boolean validacaopagamento(){}
+    protected boolean validacaopagamento(){}
 }
 class Main{
     public static void main(String [] args){
